@@ -1,0 +1,6 @@
+{
+  "name": "public-website-rebuild-scope-planner",
+  "private": true,
+  "type": "module",
+  "scripts": {"check": "node tests/check.mjs"}
+}

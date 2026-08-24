@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Public Website Rebuild Scope Planner | Evolved Designs</title>
+  <meta name="description" content="Turn a public-service website rebuild brief into a phased, acceptance-ready scope before vendor comparison.">
+  <link rel="canonical" href="https://evolved-designs.github.io/public-website-rebuild-scope-planner/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Public Website Rebuild Scope Planner">
+  <meta property="og:description" content="Define the decisions a website rebuild needs before pricing, implementation, and acceptance.">
+  <meta property="og:url" content="https://evolved-designs.github.io/public-website-rebuild-scope-planner/">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "Public Website Rebuild Scope Planner",
+          "description": "A browser-private planner for turning public-service website requirements into a phased, acceptance-ready scope.",
+          "url": "https://evolved-designs.github.io/public-website-rebuild-scope-planner/",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "isAccessibleForFree": true,
+          "creator": {"@type": "Organization", "name": "Evolved Designs", "url": "https://evolveddesigns.net/"}
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Does this planner estimate a website rebuild price?",
+              "acceptedAnswer": {"@type": "Answer", "text": "No. It identifies scope and acceptance decisions that should be defined before responsible pricing."}
+            },
+            {
+              "@type": "Question",
+              "name": "Are the selections submitted to Evolved Designs?",
+              "acceptedAnswer": {"@type": "Answer", "text": "No. Selections stay in the browser. Only the rebuild type and broad readiness band enter the contact link when a visitor deliberately opens it."}
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="mast">
+    <nav class="shell nav" aria-label="Primary">
+      <a class="brand" href="https://evolveddesigns.net/?utm_source=github_pages&amp;utm_medium=owned_tool&amp;utm_campaign=rebuild_scope_planner">Evolved Designs</a>
+      <span>Public website rebuild scope</span>
+    </nav>
+    <div class="shell hero">
+      <div>
+        <p class="eyebrow">For public-service and mission-driven teams</p>
+        <h1>Turn a rebuild brief into an acceptance-ready first phase.</h1>
+        <p class="lede">A responsible proposal needs more than a page count. Clarify the decisions that shape migration, integrations, accessibility, launch, and ongoing ownership before asking vendors to price the work.</p>
+      </div>
+      <aside class="brief-card" aria-label="Planner boundary">
+        <strong>No invented estimate.</strong>
+        <p>This tool returns a scope signal and first phase—not a dollar figure. Your selections stay in this browser.</p>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="context shell" aria-labelledby="why-title">
+      <div>
+        <p class="eyebrow">Why these decisions</p>
+        <h2 id="why-title">Current public rebuilds are operating-system projects.</h2>
+      </div>
+      <p>OWASA’s current website-rebuild RFP combines content migration, WCAG 2.2 AA, analytics, security, training, hosting, maintenance, and multiple public-service integrations. Federal acquisition guidance likewise treats accessibility requirements and validation as work to define before acceptance.</p>
+      <div class="source-row" aria-label="Primary sources">
+        <a href="https://www.owasa.org/app/uploads/2026/08/RFP-25-007-OWASA.ORG-WEBSITE-REBUILDv2.pdf">OWASA RFP 27-001</a>
+        <a href="https://www.w3.org/TR/WCAG22/">W3C WCAG 2.2</a>
+        <a href="https://www.section508.gov/buy/">Section 508 acquisition guidance</a>
+      </div>
+    </section>
+
+    <section class="planner shell" aria-label="Website rebuild scope planner">
+      <form class="panel choices" data-planner>
+        <fieldset class="rebuild-type">
+          <legend>What kind of change are you planning?</legend>
+          <label><input type="radio" name="rebuild" value="modernize" checked><span><strong>Modernize</strong><small>Keep the core system; improve journeys, content, accessibility, and performance.</small></span></label>
+          <label><input type="radio" name="rebuild" value="replace"><span><strong>Replace</strong><small>Choose a new architecture or CMS and migrate the public experience.</small></span></label>
+          <label><input type="radio" name="rebuild" value="consolidate"><span><strong>Consolidate</strong><small>Bring multiple sites, teams, or services into one governed platform.</small></span></label>
+        </fieldset>
+
+        <fieldset class="decision-list">
+          <legend>Which decisions are already owned?</legend>
+          <p class="hint">Check only what your team can defend today.</p>
+          <label><input type="checkbox" value="content"><span><strong>Content inventory</strong><small>Pages, files, owners, archive rules, and migration exceptions are known.</small></span></label>
+          <label><input type="checkbox" value="journeys"><span><strong>Priority journeys</strong><small>Residents or customers can complete the most important tasks without org-chart navigation.</small></span></label>
+          <label><input type="checkbox" value="accessibility"><span><strong>Accessibility target</strong><small>The standard, manual testing, assistive-technology checks, and evidence are defined.</small></span></label>
+          <label><input type="checkbox" value="integrations"><span><strong>Integration inventory</strong><small>Portals, maps, forms, calendars, embeds, authentication, and data owners are mapped.</small></span></label>
+          <label><input type="checkbox" value="migration"><span><strong>Migration and redirects</strong><small>URL changes, redirects, document handling, and historical content rules are specified.</small></span></label>
+          <label><input type="checkbox" value="search"><span><strong>Search and measurement</strong><small>Findability, on-site search, analytics events, and reporting decisions have owners.</small></span></label>
+          <label><input type="checkbox" value="security"><span><strong>Security and privacy</strong><small>Hosting, updates, access, data collection, retention, recovery, and incident paths are defined.</small></span></label>
+          <label><input type="checkbox" value="governance"><span><strong>Publishing governance</strong><small>Roles, review, training, content standards, and future change control are known.</small></span></label>
+          <label><input type="checkbox" value="acceptance"><span><strong>Acceptance evidence</strong><small>Each deliverable has a reviewer, test, pass condition, and correction path.</small></span></label>
+          <label><input type="checkbox" value="care"><span><strong>Launch and care</strong><small>Cutover, warranty, support, maintenance, service levels, and ownership transfer are clear.</small></span></label>
+        </fieldset>
+      </form>
+
+      <aside class="panel output" aria-live="polite">
+        <p class="eyebrow">Your scope signal</p>
+        <div class="score"><strong data-score>0/10</strong><span data-band>Discovery needed</span></div>
+        <h2 data-phase>Start with an inventory and decision workshop.</h2>
+        <p data-summary>A vendor cannot responsibly price the unknowns yet. First identify content, journeys, integrations, and decision owners.</p>
+        <div class="next-block">
+          <h3>First missing control</h3>
+          <p data-gap>Document the content inventory and migration exceptions.</p>
+        </div>
+        <div class="actions">
+          <button class="button secondary" type="button" data-copy>Copy first-phase brief</button>
+          <a class="button" data-contact href="https://evolveddesigns.net/contact-us/?utm_source=github_pages&amp;utm_medium=owned_tool&amp;utm_campaign=rebuild_scope_planner&amp;utm_content=modernize_discovery">Scope a paid discovery phase</a>
+        </div>
+        <p class="privacy">Selections stay in this browser. The contact link carries only the rebuild type and broad readiness band—never the individual answers.</p>
+      </aside>
+    </section>
+
+    <section class="acceptance shell" aria-labelledby="accept-title">
+      <p class="eyebrow">A useful acceptance sentence</p>
+      <h2 id="accept-title">For every deliverable, name the reviewer, test, pass condition, and correction window.</h2>
+      <p>That small structure makes accessibility, migration, integrations, training, and launch support easier to compare—and much harder to leave ambiguous.</p>
+    </section>
+  </main>
+
+  <footer><div class="shell">A free planning resource from Evolved Designs. It is not legal, procurement, or pricing advice.</div></footer>
+</body>
+</html>
