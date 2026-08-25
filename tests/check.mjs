@@ -1,23 +1,28 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { briefText, contactUrl, decisions, firstGap, phaseCopy, scopeSignal } from '../app.js';
+import { briefText, contactUrl, decisions, firstGap, nextGaps, phaseCopy, scopeSignal } from '../app.js';
 
 const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
 
-assert.equal(decisions.length, 11);
+assert.equal(decisions.length, 12);
 assert.equal(scopeSignal([]).band, 'discovery');
 assert.equal(scopeSignal(decisions.slice(0, 5).map(([key]) => key)).band, 'definition');
 assert.equal(scopeSignal(decisions.map(([key]) => key)).band, 'acceptance');
 assert.match(firstGap(['content']), /highest-value public journeys/);
+assert.equal(nextGaps(['content']).length, 3);
+assert.match(nextGaps(['content'])[0], /highest-value public journeys/);
 assert.match(phaseCopy([]).heading, /inventory/);
 assert.match(contactUrl('replace', []), /replace_discovery/);
 assert.doesNotMatch(contactUrl('replace', ['security']), /security/);
 assert.match(briefText('consolidate', []), /not a price estimate/);
 assert.equal((html.match(/<link rel="canonical"/g) ?? []).length, 1);
 assert.equal((html.match(/type="radio"/g) ?? []).length, 3);
-assert.equal((html.match(/type="checkbox"/g) ?? []).length, 11);
+assert.equal((html.match(/type="checkbox"/g) ?? []).length, 12);
 assert.match(html, /Design-to-build handoff/);
+assert.match(html, /Content stewardship/);
+assert.match(html, /idahoaeyc\.org\/careers\/rfp-idaho-aeyc-website-redevelopment/);
+assert.match(html, /data-gaps/);
 assert.match(html, /ohsu\.edu\/procurement\/bids/);
 assert.match(html, /WCAG 2\.2 AA/);
 assert.match(html, /section508\.gov\/buy/);

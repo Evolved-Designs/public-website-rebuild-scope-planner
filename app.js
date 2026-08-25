@@ -6,6 +6,7 @@ export const decisions = Object.freeze([
   ['migration', 'Specify URL migration, redirects, document treatment, and historical-content rules.'],
   ['search', 'Define on-site search, analytics events, findability, reporting, and decision owners.'],
   ['security', 'Set hosting, updates, access, privacy, recovery, and incident-response boundaries.'],
+  ['stewardship', 'Assign content owners, review dates, archive rules, training, and post-launch measurement.'],
   ['governance', 'Assign publishing roles, review rules, training, standards, and change control.'],
   ['acceptance', 'Give each deliverable a reviewer, test, pass condition, and correction window.'],
   ['handoff', 'Connect responsive layouts, component states, editable assets, interaction notes, accessibility behavior, developer questions, and visual QA.'],
@@ -15,13 +16,21 @@ export const decisions = Object.freeze([
 export function scopeSignal(selected = []) {
   const complete = new Set(selected).size;
   if (complete <= 3) return { band: 'discovery', label: 'Discovery needed', cta: 'Scope a paid discovery phase' };
-  if (complete <= 8) return { band: 'definition', label: 'Scope definition', cta: 'Stress-test the rebuild brief' };
+  if (complete <= 9) return { band: 'definition', label: 'Scope definition', cta: 'Stress-test the rebuild brief' };
   return { band: 'acceptance', label: 'Acceptance planning', cta: 'Compare implementation approaches' };
 }
 
 export function firstGap(selected = []) {
   const complete = new Set(selected);
   return decisions.find(([key]) => !complete.has(key))?.[1] ?? 'Keep the decision owners and acceptance evidence current through launch.';
+}
+
+export function nextGaps(selected = [], limit = 3) {
+  const complete = new Set(selected);
+  return decisions
+    .filter(([key]) => !complete.has(key))
+    .slice(0, Math.max(1, Math.min(3, Number(limit) || 3)))
+    .map(([, guidance]) => guidance);
 }
 
 export function phaseCopy(selected = []) {
@@ -53,7 +62,8 @@ export function contactUrl(rebuild = 'modernize', selected = []) {
 export function briefText(rebuild = 'modernize', selected = []) {
   const signal = scopeSignal(selected);
   const phase = phaseCopy(selected);
-  return `Public website rebuild first-phase brief\n\nChange type: ${rebuild}\nReadiness: ${signal.label} (${new Set(selected).size}/11 decisions owned)\nFirst phase: ${phase.heading}\nWhy: ${phase.summary}\nFirst missing control: ${firstGap(selected)}\n\nThis is a scope signal, not a price estimate.`;
+  const priorities = nextGaps(selected).map((gap, index) => `${index + 1}. ${gap}`).join('\n');
+  return `Public website rebuild first-phase brief\n\nChange type: ${rebuild}\nReadiness: ${signal.label} (${new Set(selected).size}/12 decisions owned)\nFirst phase: ${phase.heading}\nWhy: ${phase.summary}\nNext controls:\n${priorities || '1. Keep the decision owners and acceptance evidence current through launch.'}\n\nThis is a scope signal, not a price estimate.`;
 }
 
 function init() {
@@ -65,7 +75,7 @@ function init() {
   const band = document.querySelector('[data-band]');
   const phase = document.querySelector('[data-phase]');
   const summary = document.querySelector('[data-summary]');
-  const gap = document.querySelector('[data-gap]');
+  const gaps = document.querySelector('[data-gaps]');
   const contact = document.querySelector('[data-contact]');
   const copy = document.querySelector('[data-copy]');
 
@@ -76,11 +86,16 @@ function init() {
     const values = selected();
     const signal = scopeSignal(values);
     const copyForPhase = phaseCopy(values);
-    score.textContent = `${new Set(values).size}/11`;
+    score.textContent = `${new Set(values).size}/12`;
     band.textContent = signal.label;
     phase.textContent = copyForPhase.heading;
     summary.textContent = copyForPhase.summary;
-    gap.textContent = firstGap(values);
+    gaps.innerHTML = '';
+    nextGaps(values).forEach((item) => {
+      const entry = document.createElement('li');
+      entry.textContent = item;
+      gaps.append(entry);
+    });
     contact.textContent = signal.cta;
     contact.href = contactUrl(rebuild(), values);
   }
