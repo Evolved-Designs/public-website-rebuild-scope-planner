@@ -5,7 +5,7 @@ import { briefText, contactUrl, decisions, firstGap, phaseCopy, scopeSignal } fr
 const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
 
-assert.equal(decisions.length, 10);
+assert.equal(decisions.length, 11);
 assert.equal(scopeSignal([]).band, 'discovery');
 assert.equal(scopeSignal(decisions.slice(0, 5).map(([key]) => key)).band, 'definition');
 assert.equal(scopeSignal(decisions.map(([key]) => key)).band, 'acceptance');
@@ -16,7 +16,9 @@ assert.doesNotMatch(contactUrl('replace', ['security']), /security/);
 assert.match(briefText('consolidate', []), /not a price estimate/);
 assert.equal((html.match(/<link rel="canonical"/g) ?? []).length, 1);
 assert.equal((html.match(/type="radio"/g) ?? []).length, 3);
-assert.equal((html.match(/type="checkbox"/g) ?? []).length, 10);
+assert.equal((html.match(/type="checkbox"/g) ?? []).length, 11);
+assert.match(html, /Design-to-build handoff/);
+assert.match(html, /ohsu\.edu\/procurement\/bids/);
 assert.match(html, /WCAG 2\.2 AA/);
 assert.match(html, /section508\.gov\/buy/);
 assert.match(html, /OWASA RFP 27-001/);

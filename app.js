@@ -8,13 +8,14 @@ export const decisions = Object.freeze([
   ['security', 'Set hosting, updates, access, privacy, recovery, and incident-response boundaries.'],
   ['governance', 'Assign publishing roles, review rules, training, standards, and change control.'],
   ['acceptance', 'Give each deliverable a reviewer, test, pass condition, and correction window.'],
+  ['handoff', 'Connect responsive layouts, component states, editable assets, interaction notes, accessibility behavior, developer questions, and visual QA.'],
   ['care', 'Define cutover, warranty, support, maintenance, service levels, and ownership transfer.']
 ]);
 
 export function scopeSignal(selected = []) {
   const complete = new Set(selected).size;
   if (complete <= 3) return { band: 'discovery', label: 'Discovery needed', cta: 'Scope a paid discovery phase' };
-  if (complete <= 7) return { band: 'definition', label: 'Scope definition', cta: 'Stress-test the rebuild brief' };
+  if (complete <= 8) return { band: 'definition', label: 'Scope definition', cta: 'Stress-test the rebuild brief' };
   return { band: 'acceptance', label: 'Acceptance planning', cta: 'Compare implementation approaches' };
 }
 
@@ -52,7 +53,7 @@ export function contactUrl(rebuild = 'modernize', selected = []) {
 export function briefText(rebuild = 'modernize', selected = []) {
   const signal = scopeSignal(selected);
   const phase = phaseCopy(selected);
-  return `Public website rebuild first-phase brief\n\nChange type: ${rebuild}\nReadiness: ${signal.label} (${new Set(selected).size}/10 decisions owned)\nFirst phase: ${phase.heading}\nWhy: ${phase.summary}\nFirst missing control: ${firstGap(selected)}\n\nThis is a scope signal, not a price estimate.`;
+  return `Public website rebuild first-phase brief\n\nChange type: ${rebuild}\nReadiness: ${signal.label} (${new Set(selected).size}/11 decisions owned)\nFirst phase: ${phase.heading}\nWhy: ${phase.summary}\nFirst missing control: ${firstGap(selected)}\n\nThis is a scope signal, not a price estimate.`;
 }
 
 function init() {
@@ -75,7 +76,7 @@ function init() {
     const values = selected();
     const signal = scopeSignal(values);
     const copyForPhase = phaseCopy(values);
-    score.textContent = `${new Set(values).size}/10`;
+    score.textContent = `${new Set(values).size}/11`;
     band.textContent = signal.label;
     phase.textContent = copyForPhase.heading;
     summary.textContent = copyForPhase.summary;
