@@ -34,6 +34,11 @@ assert.match(html, /Masterwork Music and Art Foundation/);
 assert.match(html, /utm_content=arts_foundation_path/);
 assert.match(html, /Protect the private path/);
 assert.match(html, /masterworkarts\.blogspot\.com\/2026\/08\/web-site-redesign-request-for-proposal\.html/);
+assert.match(html, /Event and ticketing websites/);
+assert.match(html, /Choose the ticket model/);
+assert.match(html, /utm_content=event_ticketing_path/);
+assert.match(html, /docs\.stripe\.com\/payments\/checkout/);
+assert.match(html, /WCAG22\/Understanding\/target-size-minimum\.html/);
 assert.doesNotMatch(html + css, /clarity\.ms|Microsoft Clarity/i);
 assert.match(css, /prefers-reduced-motion/);
 
