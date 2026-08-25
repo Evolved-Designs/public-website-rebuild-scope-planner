@@ -153,6 +153,25 @@
       </div>
     </section>
 
+    <section class="continuity-path shell" aria-labelledby="continuity-title">
+      <div class="continuity-intro">
+        <p class="eyebrow">Mobile app to web product</p>
+        <h2 id="continuity-title">Define continuity before promising feature parity.</h2>
+        <p>A current product brief asks to turn a live React Native application into a working web product while reusing the existing backend, accounts, data, and APIs where practical. The responsible first phase is a parity and dependency map—not an assumption that every native screen or library transfers unchanged.</p>
+      </div>
+      <div class="continuity-checks" aria-label="Mobile-to-web continuity readiness checks">
+        <article><strong>Trace what can be reused</strong><span>Inventory APIs, authentication, data models, business rules, analytics, content, and shared JavaScript before choosing the web architecture.</span></article>
+        <article><strong>Isolate native dependencies</strong><span>Name device APIs, native modules, gestures, notifications, storage, deep links, and platform libraries that need a web replacement or deliberate omission.</span></article>
+        <article><strong>Test parity by journey</strong><span>Define responsive reflow, keyboard and touch behavior, account continuity, SEO, performance, security, and acceptance for each priority journey.</span></article>
+      </div>
+      <div class="continuity-action">
+        <a class="button" href="https://evolveddesigns.net/contact-us/?utm_source=github_pages&amp;utm_medium=owned_tool&amp;utm_campaign=rebuild_scope_planner&amp;utm_content=app_to_web_continuity_path">Scope an app-to-web discovery phase</a>
+        <a href="https://reactnative.dev/docs/native-platform">Review React Native platform boundaries</a>
+        <a href="https://nextjs.org/docs/app/guides/production-checklist">Review the Next.js production checklist</a>
+        <a href="https://www.w3.org/WAI/standards-guidelines/mobile/">Review W3C mobile accessibility</a>
+      </div>
+    </section>
+
     <section class="planner shell" aria-label="Website rebuild scope planner">
       <form class="panel choices" data-planner>
         <fieldset class="rebuild-type">
@@ -169,6 +188,7 @@
           <label><input type="checkbox" value="journeys"><span><strong>Priority journeys</strong><small>Residents or customers can complete the most important tasks without org-chart navigation.</small></span></label>
           <label><input type="checkbox" value="accessibility"><span><strong>Accessibility target</strong><small>The standard, manual testing, assistive-technology checks, and evidence are defined.</small></span></label>
           <label><input type="checkbox" value="integrations"><span><strong>Integration inventory</strong><small>Portals, maps, forms, calendars, embeds, authentication, and data owners are mapped.</small></span></label>
+          <label><input type="checkbox" value="continuity"><span><strong>Cross-platform continuity</strong><small>Reusable services, accounts, data, native-only features, web replacements, and parity tests are mapped.</small></span></label>
           <label><input type="checkbox" value="identity"><span><strong>Identity and account lifecycle</strong><small>Roles, accessible authentication, recovery, offboarding, and audit evidence are defined.</small></span></label>
           <label><input type="checkbox" value="matching"><span><strong>Matching and recommendation rules</strong><small>Inputs, rules, AI boundaries, human review, error handling, and user recourse are documented.</small></span></label>
           <label><input type="checkbox" value="migration"><span><strong>Migration and redirects</strong><small>URL changes, redirects, document handling, and historical content rules are specified.</small></span></label>
@@ -184,7 +204,7 @@
 
       <aside class="panel output" aria-live="polite">
         <p class="eyebrow">Your scope signal</p>
-        <div class="score"><strong data-score>0/14</strong><span data-band>Discovery needed</span></div>
+        <div class="score"><strong data-score>0/15</strong><span data-band>Discovery needed</span></div>
         <h2 data-phase>Start with an inventory and decision workshop.</h2>
         <p data-summary>A vendor cannot responsibly price the unknowns yet. First identify content, journeys, integrations, and decision owners.</p>
         <div class="next-block">
