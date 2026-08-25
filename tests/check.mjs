@@ -30,6 +30,10 @@ assert.match(html, /OWASA RFP 27-001/);
 assert.match(html, /Selections stay in this browser/);
 assert.match(html, /web-development\/\?utm_source=github_pages/);
 assert.match(html, /service_path#web-development-services/);
+assert.match(html, /Masterwork Music and Art Foundation/);
+assert.match(html, /utm_content=arts_foundation_path/);
+assert.match(html, /Protect the private path/);
+assert.match(html, /masterworkarts\.blogspot\.com\/2026\/08\/web-site-redesign-request-for-proposal\.html/);
 assert.doesNotMatch(html + css, /clarity\.ms|Microsoft Clarity/i);
 assert.match(css, /prefers-reduced-motion/);
 
