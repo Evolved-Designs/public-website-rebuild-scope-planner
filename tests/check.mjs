@@ -21,6 +21,8 @@ assert.match(html, /WCAG 2\.2 AA/);
 assert.match(html, /section508\.gov\/buy/);
 assert.match(html, /OWASA RFP 27-001/);
 assert.match(html, /Selections stay in this browser/);
+assert.match(html, /web-development\/\?utm_source=github_pages/);
+assert.match(html, /service_path#web-development-services/);
 assert.doesNotMatch(html + css, /clarity\.ms|Microsoft Clarity/i);
 assert.match(css, /prefers-reduced-motion/);
 
