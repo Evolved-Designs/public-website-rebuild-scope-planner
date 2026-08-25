@@ -48,6 +48,14 @@ h2 { font: 800 clamp(1.8rem, 4vw, 3rem)/1.05 Georgia, "Times New Roman", serif; 
 .event-checks span { color: var(--muted); }
 .event-action { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 18px 24px; align-items: center; }
 .event-action > a:not(.button) { font-weight: 750; }
+.media-path { display: grid; grid-template-columns: .82fr 1.18fr; gap: 34px 68px; padding-block: 62px; border-bottom: 1px solid var(--line); }
+.media-intro p:last-child { margin-bottom: 0; color: var(--muted); }
+.media-checks { display: grid; gap: 10px; }
+.media-checks article { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 18px 20px; background: #fff8ea; border: 1px solid var(--line); }
+.media-checks strong { color: var(--teal-dark); }
+.media-checks span { color: var(--muted); }
+.media-action { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 18px 24px; align-items: center; }
+.media-action > a:not(.button) { font-weight: 750; }
 .planner { display: grid; grid-template-columns: minmax(0, 1.28fr) minmax(320px, .72fr); gap: 30px; align-items: start; padding-block: 68px; }
 .panel { background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow); }
 .choices { padding: 30px; }
@@ -90,11 +98,11 @@ input:focus-visible + span, .button:focus-visible { outline: 3px solid var(--amb
 footer { padding-block: 28px; color: #cedbd9; background: var(--ink); font-size: .86rem; }
 
 @media (max-width: 850px) {
-  .hero, .context, .arts-path, .event-path, .planner { grid-template-columns: 1fr; }
+  .hero, .context, .arts-path, .event-path, .media-path, .planner { grid-template-columns: 1fr; }
   .hero { gap: 38px; }
   .brief-card { max-width: 560px; }
   .source-row { grid-column: auto; }
-  .arts-action, .event-action { grid-column: auto; }
+  .arts-action, .event-action, .media-action { grid-column: auto; }
   .output { position: static; }
 }
 
@@ -104,7 +112,7 @@ footer { padding-block: 28px; color: #cedbd9; background: var(--ink); font-size:
   .hero { padding-block: 54px 64px; }
   h1 { font-size: clamp(2.55rem, 15vw, 4.2rem); }
   .rebuild-type, .decision-list { grid-template-columns: 1fr; }
-  .arts-checks article, .event-checks article { grid-template-columns: 1fr; gap: 4px; }
+  .arts-checks article, .event-checks article, .media-checks article { grid-template-columns: 1fr; gap: 4px; }
   .rebuild-type legend, .decision-list legend, .decision-list .hint { grid-column: auto; }
   .choices, .output { padding: 22px; }
   .acceptance { padding: 28px 22px; }

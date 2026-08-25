@@ -39,6 +39,11 @@ assert.match(html, /Choose the ticket model/);
 assert.match(html, /utm_content=event_ticketing_path/);
 assert.match(html, /docs\.stripe\.com\/payments\/checkout/);
 assert.match(html, /WCAG22\/Understanding\/target-size-minimum\.html/);
+assert.match(html, /Visual portfolio and studio websites/);
+assert.match(html, /utm_content=visual_portfolio_path/);
+assert.match(html, /developers\.google\.com\/search\/docs\/appearance\/google-images/);
+assert.match(html, /w3\.org\/WAI\/tutorials\/images/);
+assert.match(html, /responsive sources, dimensions, formats/);
 assert.doesNotMatch(html + css, /clarity\.ms|Microsoft Clarity/i);
 assert.match(css, /prefers-reduced-motion/);
 
