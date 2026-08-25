@@ -4,6 +4,8 @@ import { briefText, contactUrl, decisions, firstGap, nextGaps, phaseCopy, scopeS
 
 const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
+assert.match(html, /<title>Website &amp; Web App Rebuild Scope Planner \| Evolved Designs<\/title>/);
+assert.match(html, /utm_content=hero_service_path#web-development-services/);
 
 assert.equal(decisions.length, 15);
 assert.equal(scopeSignal([]).band, 'discovery');

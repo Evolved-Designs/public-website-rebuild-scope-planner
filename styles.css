@@ -25,6 +25,8 @@ h1, h2, h3, p { margin-top: 0; }
 h1 { max-width: 790px; margin-bottom: 22px; font: 800 clamp(2.8rem, 7vw, 5.7rem)/.96 Georgia, "Times New Roman", serif; letter-spacing: -.045em; }
 h2 { font: 800 clamp(1.8rem, 4vw, 3rem)/1.05 Georgia, "Times New Roman", serif; letter-spacing: -.025em; }
 .lede { max-width: 740px; margin-bottom: 0; color: #d5e4e2; font-size: 1.14rem; }
+.hero-service { margin: 18px 0 0; }
+.hero-service a { color: var(--amber); font-weight: 800; text-underline-offset: 3px; }
 .brief-card { padding: 24px; color: var(--ink); background: var(--white); border-left: 6px solid var(--amber); box-shadow: var(--shadow); }
 .brief-card strong { display: block; margin-bottom: 8px; font-size: 1.05rem; }
 .brief-card p { margin: 0; font-size: .94rem; }
