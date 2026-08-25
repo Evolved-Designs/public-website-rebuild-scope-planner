@@ -5,7 +5,7 @@ import { briefText, contactUrl, decisions, firstGap, nextGaps, phaseCopy, scopeS
 const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const css = await readFile(new URL('../styles.css', import.meta.url), 'utf8');
 
-assert.equal(decisions.length, 12);
+assert.equal(decisions.length, 14);
 assert.equal(scopeSignal([]).band, 'discovery');
 assert.equal(scopeSignal(decisions.slice(0, 5).map(([key]) => key)).band, 'definition');
 assert.equal(scopeSignal(decisions.map(([key]) => key)).band, 'acceptance');
@@ -18,7 +18,7 @@ assert.doesNotMatch(contactUrl('replace', ['security']), /security/);
 assert.match(briefText('consolidate', []), /not a price estimate/);
 assert.equal((html.match(/<link rel="canonical"/g) ?? []).length, 1);
 assert.equal((html.match(/type="radio"/g) ?? []).length, 3);
-assert.equal((html.match(/type="checkbox"/g) ?? []).length, 12);
+assert.equal((html.match(/type="checkbox"/g) ?? []).length, 14);
 assert.match(html, /Design-to-build handoff/);
 assert.match(html, /Content stewardship/);
 assert.match(html, /idahoaeyc\.org\/careers\/rfp-idaho-aeyc-website-redevelopment/);
@@ -44,6 +44,12 @@ assert.match(html, /utm_content=visual_portfolio_path/);
 assert.match(html, /developers\.google\.com\/search\/docs\/appearance\/google-images/);
 assert.match(html, /w3\.org\/WAI\/tutorials\/images/);
 assert.match(html, /responsive sources, dimensions, formats/);
+assert.match(html, /Portal and matching platforms/);
+assert.match(html, /Identity and account lifecycle/);
+assert.match(html, /Matching and recommendation rules/);
+assert.match(html, /utm_content=portal_matching_path/);
+assert.match(html, /lsntap\.org\/jobs-rfps\/request-proposal-web-development-consultant/);
+assert.match(html, /accessible-authentication-minimum\.html/);
 assert.doesNotMatch(html + css, /clarity\.ms|Microsoft Clarity/i);
 assert.match(css, /prefers-reduced-motion/);
 
