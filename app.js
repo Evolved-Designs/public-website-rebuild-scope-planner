@@ -70,6 +70,16 @@ export function briefText(rebuild = 'modernize', selected = []) {
   return `Public website rebuild first-phase brief\n\nChange type: ${rebuild}\nReadiness: ${signal.label} (${new Set(selected).size}/${decisions.length} decisions owned)\nFirst phase: ${phase.heading}\nWhy: ${phase.summary}\nNext controls:\n${priorities || '1. Keep the decision owners and acceptance evidence current through launch.'}\n\nThis is a scope signal, not a price estimate.`;
 }
 
+export function downloadTextFile(filename, text) {
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
 function init() {
   const form = document.querySelector('[data-planner]');
   if (!form) return;
@@ -82,6 +92,7 @@ function init() {
   const gaps = document.querySelector('[data-gaps]');
   const contact = document.querySelector('[data-contact]');
   const copy = document.querySelector('[data-copy]');
+  const download = document.querySelector('[data-download]');
 
   const selected = () => boxes.filter((box) => box.checked).map((box) => box.value);
   const rebuild = () => types.find((type) => type.checked)?.value ?? 'modernize';
@@ -110,8 +121,15 @@ function init() {
     window.setTimeout(() => { copy.textContent = 'Copy first-phase brief'; }, 1800);
   }
 
+  function downloadBrief() {
+    downloadTextFile('public-website-rebuild-first-phase-brief.txt', briefText(rebuild(), selected()));
+    download.textContent = 'Brief downloaded';
+    window.setTimeout(() => { download.textContent = 'Download first-phase brief'; }, 1800);
+  }
+
   [...boxes, ...types].forEach((control) => control.addEventListener('change', render));
   copy.addEventListener('click', () => copyBrief().catch(() => { copy.textContent = 'Copy unavailable'; }));
+  download.addEventListener('click', downloadBrief);
   render();
 }
 
