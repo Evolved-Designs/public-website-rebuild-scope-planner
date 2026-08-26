@@ -7,6 +7,7 @@ export const decisions = Object.freeze([
   ['identity', 'Define account roles, accessible authentication, recovery, offboarding, and audit evidence.'],
   ['matching', 'Document matching inputs, rules, AI boundaries, human review, error handling, and user recourse.'],
   ['migration', 'Specify URL migration, redirects, document treatment, and historical-content rules.'],
+  ['indexability', 'Verify every intended public route can be crawled, indexed, linked, canonicalized, and measured after launch.'],
   ['search', 'Define on-site search, analytics events, findability, reporting, and decision owners.'],
   ['security', 'Set hosting, updates, access, privacy, recovery, and incident-response boundaries.'],
   ['stewardship', 'Assign content owners, review dates, archive rules, training, and post-launch measurement.'],
@@ -19,7 +20,7 @@ export const decisions = Object.freeze([
 export function scopeSignal(selected = []) {
   const complete = new Set(selected).size;
   if (complete <= 4) return { band: 'discovery', label: 'Discovery needed', cta: 'Scope a paid discovery phase' };
-  if (complete <= 11) return { band: 'definition', label: 'Scope definition', cta: 'Stress-test the rebuild brief' };
+  if (complete <= 12) return { band: 'definition', label: 'Scope definition', cta: 'Stress-test the rebuild brief' };
   return { band: 'acceptance', label: 'Acceptance planning', cta: 'Compare implementation approaches' };
 }
 
@@ -66,7 +67,7 @@ export function briefText(rebuild = 'modernize', selected = []) {
   const signal = scopeSignal(selected);
   const phase = phaseCopy(selected);
   const priorities = nextGaps(selected).map((gap, index) => `${index + 1}. ${gap}`).join('\n');
-  return `Public website rebuild first-phase brief\n\nChange type: ${rebuild}\nReadiness: ${signal.label} (${new Set(selected).size}/15 decisions owned)\nFirst phase: ${phase.heading}\nWhy: ${phase.summary}\nNext controls:\n${priorities || '1. Keep the decision owners and acceptance evidence current through launch.'}\n\nThis is a scope signal, not a price estimate.`;
+  return `Public website rebuild first-phase brief\n\nChange type: ${rebuild}\nReadiness: ${signal.label} (${new Set(selected).size}/${decisions.length} decisions owned)\nFirst phase: ${phase.heading}\nWhy: ${phase.summary}\nNext controls:\n${priorities || '1. Keep the decision owners and acceptance evidence current through launch.'}\n\nThis is a scope signal, not a price estimate.`;
 }
 
 function init() {
@@ -89,7 +90,7 @@ function init() {
     const values = selected();
     const signal = scopeSignal(values);
     const copyForPhase = phaseCopy(values);
-    score.textContent = `${new Set(values).size}/15`;
+    score.textContent = `${new Set(values).size}/${decisions.length}`;
     band.textContent = signal.label;
     phase.textContent = copyForPhase.heading;
     summary.textContent = copyForPhase.summary;
