@@ -36,7 +36,7 @@ assert.match(html, /WCAG 2\.2 AA/);
 assert.match(html, /section508\.gov\/buy/);
 assert.match(html, /OWASA RFP 27-001/);
 assert.match(html, /Selections stay in this browser/);
-assert.match(html, /web-development\/\?utm_source=github_pages/);
+assert.match(html, /web-development\/\?utm_source=github/);
 assert.match(html, /service_path#web-development-services/);
 assert.match(html, /Masterwork Music and Art Foundation/);
 assert.match(html, /utm_content=arts_foundation_path/);

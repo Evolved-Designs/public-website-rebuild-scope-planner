@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://evolved-designs.github.io/public-website-rebuild-scope-planner/sitemap.xml
+Sitemap: https://evolveddesigns.net/website-procurement-readiness/sitemap.xml

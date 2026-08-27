@@ -56,7 +56,7 @@ export function phaseCopy(selected = []) {
 export function contactUrl(rebuild = 'modernize', selected = []) {
   const valid = ['modernize', 'replace', 'consolidate'].includes(rebuild) ? rebuild : 'modernize';
   const url = new URL('https://evolveddesigns.net/contact-us/');
-  url.searchParams.set('utm_source', 'github_pages');
+  url.searchParams.set('utm_source', 'github');
   url.searchParams.set('utm_medium', 'owned_tool');
   url.searchParams.set('utm_campaign', 'rebuild_scope_planner');
   url.searchParams.set('utm_content', `${valid}_${scopeSignal(selected).band}`);
